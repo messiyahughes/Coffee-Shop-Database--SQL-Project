@@ -1,92 +1,60 @@
-Coffee Shop Database Case Study
-
-Project Overview
-
-This project demonstrates how a SQL-based database was designed for a fictional coffee shop to help track customer orders, products, and sales data. The goal is to provide insights into customer behavior, top-selling products, and strategic marketing opportunities.
-
-The database consists of three main tables: Customers, Products, and Orders. Using SQL queries, I was able to extract valuable information for business decision-making.
-
-Business Problem
-
-The coffee shop wanted to improve its profitability by:
-
-Identifying the top-selling products.
-
-Understanding which customers are the most valuable.
-
-Developing marketing campaigns targeting high-value customers and promoting popular products.
+Coffee Shop SQL Database Project
 
 
-Solution
+Overview
 
-Using SQL queries, the database provided answers to key business questions:
+Hey, y’all! Welcome to my Coffee Shop SQL Database project. This project is something I put together to showcase my skills in database management, querying, and data analysis using SQL. As a data analyst in the making, this project simulates a real-world scenario where a coffee shop needs to manage customer orders, products, and analyze spending trends to improve their business.
 
-1. Top-Selling Products
-By analyzing the number of orders for each product, I identified which products were ordered most frequently. This insight allows the coffee shop to ensure adequate stock of popular items and make data-driven decisions on product promotion.
+Project Objectives
 
-SQL Query:
-sql
-Copy code
-SELECT p.product_name, 
-       COUNT(o.order_id) AS times_ordered
-FROM Orders o
-JOIN Products p ON o.product_id = p.product_id
-GROUP BY p.product_id
-ORDER BY times_ordered DESC;
-2. Most Valuable Customers
-We calculated which customers spent the most on their orders, allowing the coffee shop to target high-value customers for loyalty programs or special promotions.
+This project highlights how a coffee shop can use SQL to:
 
-SQL Query:
-sql
-Copy code
-SELECT c.customer_id, 
-       CONCAT(c.first_name, ' ', c.last_name) AS full_name, 
-       SUM(o.quantity * p.price) AS total_spent
-FROM Orders o
-JOIN Customers c ON o.customer_id = c.customer_id
-JOIN Products p ON o.product_id = p.product_id
-GROUP BY c.customer_id
-ORDER BY total_spent DESC;
-3. Customer Purchase Behavior
-We analyzed customer purchase patterns to find which products each customer prefers and how often they place orders. This provides deeper insights into individual customer preferences and allows the shop to personalize promotions.
-
-SQL Query:
-sql
-Copy code
-SELECT 
-    c.customer_id,
-    CONCAT(c.first_name, ' ', c.last_name) AS full_name,
-    COUNT(o.order_id) AS total_orders,
-    SUM(o.quantity * p.price) AS total_spent,
-    (SELECT p2.product_name 
-     FROM Orders o2
-     JOIN Products p2 ON o2.product_id = p2.product_id
-     WHERE o2.customer_id = c.customer_id
-     GROUP BY p2.product_id
-     ORDER BY COUNT(o2.order_id) DESC
-     LIMIT 1) AS favorite_product
-FROM 
-    Customers c
-JOIN 
-    Orders o ON c.customer_id = o.customer_id
-JOIN 
-    Products p ON o.product_id = p.product_id
-GROUP BY 
-    c.customer_id
-ORDER BY 
-    total_spent DESC;
-Business Insights
-Top Products: The coffee shop’s most frequently ordered products are key drivers of revenue and should be prioritized for promotions.
-High-Value Customers: Targeting top spenders with loyalty rewards will increase customer retention and overall sales.
-Personalized Campaigns: Using customer purchase behavior insights, the coffee shop can tailor marketing campaigns to customer preferences, promoting favorite products to frequent buyers.
+Manage their Customers, Products, and Orders efficiently.
+Track customer behaviors and identify which customers spend the most.
+Analyze product performance to determine the top-sellers.
+Provide insights to help the business decide which products to promote and stock more frequently.
 Database Structure
-The database consists of the following tables:
+The database is composed of three key tables:
 
-Customers: Stores customer details such as first name, last name, email, and phone number.
-Products: Stores product details, including product name and price.
-Orders: Stores order details, including which customer placed the order, which product was ordered, and the order date.
-An ER diagram is provided below to illustrate the database structure:
+Customers – Stores customer details like first name, last name, email, and phone number.
+Products – Contains product details like the product name and price.
+Orders – Holds order details such as customer ID, product ID, quantity, and order date. It also includes relationships to the Customers and Products tables using foreign keys.
+Entity Relationship Diagram (ERD)
 
-(Include ER diagram image here if possible)
+This diagram illustrates the relationships between customers, products, and orders.
+
+SQL Queries
+Here are some key queries included in this project:
+
+Top Customers by Spending
+Query to identify which customers have spent the most money.
+
+Top-Selling Products
+Query to determine the most popular products based on the number of orders.
+
+Customer Order History
+This query provides a detailed list of all the orders placed by each customer, including total cost and quantity.
+
+Average Spending per Customer
+This query calculates the average spending across all customers for the coffee shop.
+
+Business Insights
+With the SQL queries I've used, here are some important business insights:
+
+Top-selling products: The Southern Mocha and Pecan Coffee are big hits, meaning the coffee shop can promote these items more or keep higher inventory.
+High-spending customers: By identifying the top spenders, the coffee shop can create targeted marketing campaigns or loyalty programs.
+Product demand patterns: The shop can stock more of the most-ordered items and adjust pricing based on demand trends.
+Case Study
+Scenario: The coffee shop wants to increase profitability and customer retention by focusing on promoting top-selling products and rewarding their biggest spenders. I used SQL queries to:
+
+Identify which products bring in the most revenue.
+Highlight customers who order frequently or spend the most.
+Recommend stocking and promotion strategies to maximize profits.
+How to Use
+You can run this project on your own machine by following these steps:
+
+Clone this repository.
+Import the SQL script into your MySQL database.
+Run the provided queries to explore the data and gain insights.
 Conclusion
-The Coffee Shop database provides valuable insights for the business, enabling data-driven decisions on product stocking, marketing campaigns, and customer retention strategies. By leveraging SQL queries, the coffee shop can optimize its operations and boost profitability.
+This project helped me demonstrate the power of SQL in analyzing customer behavior, product performance, and overall business trends. It’s just the beginning of what’s possible with data analysis!
