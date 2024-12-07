@@ -1,60 +1,47 @@
-Coffee Shop SQL Database Project
+# Coffee Shop SQL Database Project
 
+## Overview  
+Hey y’all! Welcome to my Coffee Shop SQL Database project. This project showcases my skills in database management, querying, and data analysis using SQL. It simulates a real-world coffee shop scenario where the business needs to manage customer orders, products, and analyze spending trends to improve operations.
 
-Overview
+## Project Objectives  
+This project demonstrates how SQL can help a coffee shop:  
+- Manage Customers, Products, and Orders efficiently.  
+- Track customer behaviors to identify high spenders.  
+- Analyze product performance to identify top-sellers and guide stocking decisions.
 
-Hey, y’all! Welcome to my Coffee Shop SQL Database project. This project is something I put together to showcase my skills in database management, querying, and data analysis using SQL. As a data analyst in the making, this project simulates a real-world scenario where a coffee shop needs to manage customer orders, products, and analyze spending trends to improve their business.
+## Database Structure  
+The database consists of three main tables:  
+- **Customers**: Stores customer details like first name, last name, email, and phone number.  
+- **Products**: Contains product names and prices.  
+- **Orders**: Holds order details including customer ID, product ID, quantity, and order date, with foreign keys linking to Customers and Products.
 
-Project Objectives
+## Entity Relationship Diagram (ERD)  
+The ERD illustrates the relationships between Customers, Products, and Orders.
 
-This project highlights how a coffee shop can use SQL to:
+## Key SQL Queries  
+Here are some key queries included in this project:  
+- **Top Customers by Spending**: Identifies which customers have spent the most.  
+- **Top-Selling Products**: Determines the most popular products based on order volume.  
+- **Customer Order History**: Lists all orders placed by each customer, including total cost and quantity.  
+- **Average Spending per Customer**: Calculates average spending across all customers.
 
-Manage their Customers, Products, and Orders efficiently.
-Track customer behaviors and identify which customers spend the most.
-Analyze product performance to determine the top-sellers.
-Provide insights to help the business decide which products to promote and stock more frequently.
-Database Structure
-The database is composed of three key tables:
+## Business Insights  
+The SQL queries provide insights such as:  
+- **Top-Selling Products**: Southern Mocha and Pecan Coffee are customer favorites, suggesting they should be promoted or kept in higher inventory.  
+- **High-Spending Customers**: Identifying top spenders can help the shop target them with personalized offers or loyalty programs.  
+- **Product Demand**: Stocking more of the top-ordered items and adjusting pricing based on demand trends will optimize sales.
 
-Customers – Stores customer details like first name, last name, email, and phone number.
-Products – Contains product details like the product name and price.
-Orders – Holds order details such as customer ID, product ID, quantity, and order date. It also includes relationships to the Customers and Products tables using foreign keys.
-Entity Relationship Diagram (ERD)
+## Case Study Scenario  
+The coffee shop wants to increase profitability and retention by promoting top-selling products and rewarding high spenders. I used SQL queries to:  
+- Identify the most profitable products.  
+- Highlight frequent and high-spending customers.  
+- Recommend stocking and promotion strategies to maximize profits.
 
-This diagram illustrates the relationships between customers, products, and orders.
+## How to Use  
+To run this project on your machine:  
+1. Clone this repository.  
+2. Import the SQL script into your MySQL database.  
+3. Run the provided queries to explore the data and gain insights.
 
-SQL Queries
-Here are some key queries included in this project:
-
-Top Customers by Spending
-Query to identify which customers have spent the most money.
-
-Top-Selling Products
-Query to determine the most popular products based on the number of orders.
-
-Customer Order History
-This query provides a detailed list of all the orders placed by each customer, including total cost and quantity.
-
-Average Spending per Customer
-This query calculates the average spending across all customers for the coffee shop.
-
-Business Insights
-With the SQL queries I've used, here are some important business insights:
-
-Top-selling products: The Southern Mocha and Pecan Coffee are big hits, meaning the coffee shop can promote these items more or keep higher inventory.
-High-spending customers: By identifying the top spenders, the coffee shop can create targeted marketing campaigns or loyalty programs.
-Product demand patterns: The shop can stock more of the most-ordered items and adjust pricing based on demand trends.
-Case Study
-Scenario: The coffee shop wants to increase profitability and customer retention by focusing on promoting top-selling products and rewarding their biggest spenders. I used SQL queries to:
-
-Identify which products bring in the most revenue.
-Highlight customers who order frequently or spend the most.
-Recommend stocking and promotion strategies to maximize profits.
-How to Use
-You can run this project on your own machine by following these steps:
-
-Clone this repository.
-Import the SQL script into your MySQL database.
-Run the provided queries to explore the data and gain insights.
-Conclusion
-This project helped me demonstrate the power of SQL in analyzing customer behavior, product performance, and overall business trends. It’s just the beginning of what’s possible with data analysis!
+## Conclusion  
+This project demonstrates how SQL can be used to analyze customer behavior, product performance, and business trends. It’s a great start to applying data analysis techniques to real-world scenarios.
